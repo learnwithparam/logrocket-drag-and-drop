@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import "./App.css";
 import { useDropzone } from "react-dropzone";
 
@@ -21,13 +21,28 @@ const MyDropzone = ({ onDrop, accept }) => {
 };
 
 function App() {
+  const [images, setImages] = useState([]);
   const onDrop = useCallback(acceptedFiles => {
-    console.log(acceptedFiles);
+    acceptedFiles.map(file => {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        setImages(snapshotImages => [...snapshotImages, e.target.result]);
+      };
+      reader.readAsDataURL(file);
+      return file;
+    });
   }, []);
 
   return (
     <div className="App">
       <MyDropzone onDrop={onDrop} accept={"image/*"} />
+      <ul>
+        {images.map((image, index) => (
+          <li key={`img-${index}`}>
+            <img alt={`img - ${index}`} src={image} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
