@@ -20,7 +20,7 @@
   cursor: pointer;
 }
 .dropzone-active {
-  background-color: #f9f6fc;
+  background-color: #f1e2ff;
   border: 5px solid #2fd7b5;
 }
 .dropzone-content {
