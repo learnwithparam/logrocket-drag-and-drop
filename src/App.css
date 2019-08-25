@@ -1,0 +1,49 @@
+.App {
+  max-width: 960px;
+  margin: 10px auto;
+}
+
+.text-center {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+/* Dropzone */
+.dropzone {
+  padding: 30px;
+  height: 30vh;
+  border: 5px dashed #7649bc;
+  outline: none;
+  cursor: pointer;
+}
+.dropzone-active {
+  background-color: #f9f6fc;
+  border: 5px solid #2fd7b5;
+}
+.dropzone-content {
+  align-self: center;
+  font-size: 24px;
+}
+
+/* Images */
+.file-list {
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.file-item {
+  width: calc(33% - 20px);
+  height: 300px;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  margin: 10px;
+}
+.file-img {
+  width: 100%;
+  height: 100%;
+}
