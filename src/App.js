@@ -2,8 +2,11 @@ import React, { useCallback } from "react";
 import "./App.css";
 import { useDropzone } from "react-dropzone";
 
-const MyDropzone = ({ onDrop }) => {
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+const MyDropzone = ({ onDrop, accept }) => {
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept
+  });
 
   return (
     <div {...getRootProps()}>
@@ -24,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <MyDropzone onDrop={onDrop} />
+      <MyDropzone onDrop={onDrop} accept={"image/*"} />
     </div>
   );
 }
