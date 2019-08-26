@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import Dropzone from "./Dropzone";
+import ImageList from "./ImageList";
 import "./App.css";
 
 function App() {
@@ -22,13 +23,7 @@ function App() {
       {images && images.length > 0 && (
         <h3 className="text-center">Drag the Images to change positions</h3>
       )}
-      <ul className="file-list">
-        {images.map((image, index) => (
-          <li key={`img-${index}`} className="file-item">
-            <img alt={`img - ${index}`} src={image} className="file-img" />
-          </li>
-        ))}
-      </ul>
+      <ImageList images={images} />
     </main>
   );
 }
