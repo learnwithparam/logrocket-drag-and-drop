@@ -1,4 +1,8 @@
 import React, { useCallback, useState } from "react";
+import { DndProvider } from "react-dnd";
+import HTML5Backend from "react-dnd-html5-backend";
+import update from "immutability-helper";
+
 import Dropzone from "./Dropzone";
 import ImageList from "./ImageList";
 import "./App.css";
@@ -16,6 +20,15 @@ function App() {
     });
   }, []);
 
+  const onUpdate = (dragIndex, hoverIndex) => {
+    const draggedImage = images[dragIndex];
+    setImages(
+      update(images, {
+        $splice: [[dragIndex, 1], [hoverIndex, 0, draggedImage]]
+      })
+    );
+  };
+
   return (
     <main className="App">
       <h1 className="text-center">Drag and Drop</h1>
@@ -23,7 +36,9 @@ function App() {
       {images && images.length > 0 && (
         <h3 className="text-center">Drag the Images to change positions</h3>
       )}
-      <ImageList images={images} />
+      <DndProvider backend={HTML5Backend}>
+        <ImageList images={images} onUpdate={onUpdate} />
+      </DndProvider>
     </main>
   );
 }
