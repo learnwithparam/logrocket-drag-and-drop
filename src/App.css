@@ -42,7 +42,8 @@
   border: 1px solid #eaeaea;
   border-radius: 4px;
   margin: 10px;
-  cursor: "move";
+  cursor: move;
+  transition: all 0.3s linear;
 }
 .file-img {
   width: 100%;
