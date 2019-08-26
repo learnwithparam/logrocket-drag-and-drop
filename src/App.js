@@ -1,12 +1,17 @@
 import React, { useCallback, useState } from "react";
 import { DndProvider } from "react-dnd";
 import HTML5Backend from "react-dnd-html5-backend";
+import TouchBackend from "react-dnd-touch-backend";
 import update from "immutability-helper";
 import cuid from "cuid";
 
 import Dropzone from "./Dropzone";
 import ImageList from "./ImageList";
+import { isTouchDevice } from "./utils";
+
 import "./App.css";
+
+const backendForDND = isTouchDevice() ? TouchBackend : HTML5Backend;
 
 function App() {
   const [images, setImages] = useState([]);
@@ -40,7 +45,7 @@ function App() {
       {images && images.length > 0 && (
         <h3 className="text-center">Drag the Images to change positions</h3>
       )}
-      <DndProvider backend={HTML5Backend}>
+      <DndProvider backend={backendForDND}>
         <ImageList images={images} onUpdate={onUpdate} />
       </DndProvider>
     </main>
