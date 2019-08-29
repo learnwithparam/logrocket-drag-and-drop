@@ -29,7 +29,7 @@ function App() {
     });
   }, []);
 
-  const onUpdate = (dragIndex, hoverIndex) => {
+  const moveImage = (dragIndex, hoverIndex) => {
     const draggedImage = images[dragIndex];
     setImages(
       update(images, {
@@ -46,7 +46,7 @@ function App() {
         <h3 className="text-center">Drag the Images to change positions</h3>
       )}
       <DndProvider backend={backendForDND}>
-        <ImageList images={images} onUpdate={onUpdate} />
+        <ImageList images={images} moveImage={moveImage} />
       </DndProvider>
     </main>
   );

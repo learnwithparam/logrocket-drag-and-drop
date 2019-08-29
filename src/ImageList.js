@@ -46,14 +46,14 @@ const Image = ({ image, index, moveImage }) => {
   );
 };
 
-const ImageList = ({ images, onUpdate }) => {
+const ImageList = ({ images, moveImage }) => {
   const renderImage = (image, index) => {
     return (
       <Image
         image={image}
         index={index}
         key={`${image.id}-image`}
-        moveImage={onUpdate}
+        moveImage={moveImage}
       />
     );
   };
