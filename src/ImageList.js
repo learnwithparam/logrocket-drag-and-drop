@@ -3,7 +3,7 @@ import { useDrag, useDrop } from "react-dnd";
 
 const type = "Image"; // Need to pass which type element can be draggable
 
-const Image = ({ image, index, id, moveImage }) => {
+const Image = ({ image, index, moveImage }) => {
   const ref = useRef(null);
 
   const [, drop] = useDrop({
@@ -26,7 +26,7 @@ const Image = ({ image, index, id, moveImage }) => {
   });
 
   const [{ isDragging }, drag] = useDrag({
-    item: { type, id, index },
+    item: { type, id: image.id, index },
     collect: monitor => ({
       isDragging: monitor.isDragging()
     })
@@ -53,7 +53,6 @@ const ImageList = ({ images, onUpdate }) => {
         image={image}
         index={index}
         key={`${image.id}-image`}
-        id={image.id}
         moveImage={onUpdate}
       />
     );
