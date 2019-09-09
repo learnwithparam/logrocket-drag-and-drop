@@ -10,7 +10,7 @@
     "react-dnd-html5-backend": "^9.3.4",
     "react-dnd-touch-backend": "^9.3.4",
     "react-dom": "^16.9.0",
-    "react-dropzone": "^10.1.7",
+    "react-dropzone": "^10.1.8",
     "react-scripts": "3.1.1"
   },
   "scripts": {
@@ -35,7 +35,7 @@
     ]
   },
   "devDependencies": {
-    "husky": "^3.0.4",
+    "husky": "^3.0.5",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1"
   },
